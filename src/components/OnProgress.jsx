@@ -74,7 +74,7 @@ const OnProgress = () => {
                 <button className="absolute right-2 -top-8 text-gray-400 hover:text-gray-600">
                   <PiDotsThreeBold />
                 </button>
-                <div className="hidden group-hover:flex flex-col absolute right-0 -top-5 w-24 text-whiteColor bg-primaryColor border border-gray-500 rounded-md shadow-lg z-10">
+                <div className="hidden group-hover:flex flex-col absolute right-6 -top-10 w-24 text-whiteColor bg-primaryColor border border-gray-500 rounded-md shadow-lg z-10">
                   <button
                     className="w-full text-left px-3 py-2 text-sm hover:bg-black/25"
                     onClick={() => openModal(task)} // Open modal for confirmation

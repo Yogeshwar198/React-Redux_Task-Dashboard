@@ -17,17 +17,16 @@ const Sidebar = () => {
     const [open, setOpen] = useState(true);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-    
     useEffect(() => {
         const handleResize = () => {
             const isSmall = window.innerWidth < 640;
             setIsSmallScreen(isSmall);
             if (isSmall) {
-                setOpen(false); // Always keep sidebar closed on small screens
+                setOpen(false); 
             }
         };
 
-        handleResize(); // Set initial state
+        handleResize(); 
         window.addEventListener("resize", handleResize);
 
         return () => {
@@ -40,7 +39,7 @@ const Sidebar = () => {
             <div
                 className={`bg-primaryColor border-r border-gray-500 min-h-screen sticky top-0 ${
                     open ? "w-64" : "w-16"
-                } duration-500 text-textColor px-4`}
+                } duration-500 text-textColor px-4 z-50`}
             >
                 {/* Toggle Button (hidden for small screens) */}
                 {!isSmallScreen && (
@@ -95,7 +94,7 @@ const Sidebar = () => {
                             <h2
                                 className={`${
                                     open && "hidden"
-                                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit`}
+                                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit z-40`}
                             >
                                 {menu?.name}
                             </h2>
