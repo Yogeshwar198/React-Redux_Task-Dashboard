@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
+import Dashboard from './pages/Dashboard'
+import { Route, Routes } from 'react-router-dom'
+import Task from './pages/Task'
+import Completed from './pages/Completed'
+import TodoPages from './pages/TodoPages'
 
-function App() {
+
+const App = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-primaryColor flex min-h-screen">
+      <Sidebar />
+      <div className="flex-1 overflow-y-auto">
+        <Navbar />
+        {/* Content Goes Here */}
+        <div className="p-6 text-white">
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/todo' element={<TodoPages />} />
+            <Route path='/task' element={<Task />} />
+            <Route path='/completed' element={<Completed />} />
+          </Routes>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
