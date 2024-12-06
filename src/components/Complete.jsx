@@ -19,13 +19,13 @@ const Complete = () => {
 
   // Function to move task to "To Do"
   const handleMoveToTodo = (taskId) => {
-    dispatch(updateTaskStatus({ id: taskId, status: 'To Do' }));
+    dispatch(updateTaskStatus({ id: taskId, status: 'Todo' }));
   };
 
   // Handle delete task
   const handleDelete = (taskId) => {
     dispatch(deleteTask(taskId));
-    closeModal(); // Close modal after deletion
+    closeModal(); 
   };
 
   const openModal = (task) => {
@@ -92,7 +92,7 @@ const Complete = () => {
               <h2 className="text-sm font-semibold text-gray-800">{task.title}</h2>
               <p className="text-xs text-gray-600 mt-1">{task.description}</p>
               <p className="text-xs text-gray-500 mt-2">
-                Deadline: <span className="font-medium text-gray-700">{task.deadline?.toLocaleDateString()}</span>
+                Deadline: <span className="font-medium text-gray-700">{task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'No due date'}</span>
               </p>
             </div>
           ))}

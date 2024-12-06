@@ -15,7 +15,7 @@ const Task = () => {
     const newTask = {
       id: Date.now(), 
       ...task,
-      status: 'To Do', 
+      status: 'Todo', 
     };
     dispatch(addTask(newTask)); 
     setIsModalOpen(false); 

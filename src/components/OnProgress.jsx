@@ -18,12 +18,12 @@ const OnProgress = () => {
 
   // Function to move task to "Done"
   const handleMoveToDone = (taskId) => {
-    dispatch(updateTaskStatus({ id: taskId, status: 'done' }));
+    dispatch(updateTaskStatus({ id: taskId, status: 'Completed' }));
   };
 
   // Function to move task to "Todo"
   const handleMoveToTodo = (taskId) => {
-    dispatch(updateTaskStatus({ id: taskId, status: 'To Do' }));
+    dispatch(updateTaskStatus({ id: taskId, status: 'Todo' }));
   };
 
   // Handle delete task
@@ -46,7 +46,7 @@ const OnProgress = () => {
   const filteredTasks = tasks.filter((task) => {
     const lowerCaseSearchQuery = searchQuery?.toLowerCase() || "";
     return (
-      task.status === 'inProgress' &&
+      task.status === 'inProgress'  &&
       (task.title?.toLowerCase()?.includes(lowerCaseSearchQuery) || '')
     );
   });
@@ -98,7 +98,7 @@ const OnProgress = () => {
               <h2 className="text-sm font-semibold text-gray-800">{task.title}</h2>
               <p className="text-xs text-gray-600 mt-1">{task.description}</p>
               <p className="text-xs text-gray-500 mt-2">
-                Deadline: <span className="font-medium text-gray-700">{task.deadline?.toLocaleDateString()}</span>
+                Deadline: <span className="font-medium text-gray-700">{task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'No due date'}</span>
               </p>
             </div>
           ))}
